@@ -1,6 +1,6 @@
 # EditorMD extension for laravel-admin
 
-This is a `laravel-admin` extension that integrates [EditorMD](https://github.com/mycolorway/editormd) into the `laravel-admin` form.
+This is a `laravel-admin` extension that integrates [EditorMD](http://pandao.github.io/editor.md/) into the `laravel-admin` form.
 To adopt to laravel-admin, I made some tiny changes in editormd aseets.
 Please feel free to contact me if you encounter any difficulties when you use this extension.
 

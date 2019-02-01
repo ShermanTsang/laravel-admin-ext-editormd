@@ -21,4 +21,7 @@
         margin-bottom: 10px;
     }
 
+    .CodeMirror, .editormd-preview {
+        width: 50%;
+    }
 </style>
