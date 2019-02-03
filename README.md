@@ -28,6 +28,8 @@ In the `extensions` section of the `config/admin.php` file, add some configurati
         'enable' => true,
 		// Set to true if you want to take advantage the screen length for your editormd instance.
 		'wideMode' => false,
+		// Set to true when the instance included in larave-admin tab component.
+		'dynamicMode' => false,
         // Editor configuration
         'config' => [
 		'path' => '/vendor/laravel-admin-ext/editormd/editormd-1.5.0/lib/',
