@@ -18,7 +18,28 @@ class Editor extends Field
     {
         $config = json_encode((array)config('admin.extensions.editormd.config'));
         $valueType = config('admin.extensions.editormd.valueType');
-        $this->script = <<<EOT
+        if (config('admin.extensions.editormd.dynamicMode')) {
+            $this->script = <<<EOT
+        var editorMd;
+        $(document).ready(function(){
+            $("#editormd-create-btn").click(function(){
+                $("#editormd-create-btn").hide();
+                    var valueType = '{$valueType}';
+                    var config = Object.assign({id:'{$this->id}'}, {$config});
+                    editorMd = editormd(config);
+                    // Fix editormd V1.5.0 bug (Previewing close button default set to show when loaded).
+                    $(".editormd-preview-close-btn").hide();
+                    // Set the content value type.
+                    if( config['saveHTMLToTextarea'] ) {
+                       $(".editormd-html-textarea").attr("name", '{$this->id}');
+                    } else {
+                       $(".editormd-markdown-textarea").attr("name", '{$this->id}');
+                    }
+                });           
+        });
+EOT;
+        } else {
+            $this->script = <<<EOT
         var editorMd;
         var valueType = '{$valueType}';
         var config = Object.assign({id:'{$this->id}'}, {$config});
@@ -34,6 +55,7 @@ class Editor extends Field
             }
         });
 EOT;
+        }
         return parent::render();
     }
 }
