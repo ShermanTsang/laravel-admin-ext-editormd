@@ -4,7 +4,7 @@
     <div class="{{config('admin.extensions.editormd.wideMode') ? 'col-sm-12' : $viewClass['field'] }}">
         @include('admin::form.error')
         @if(config('admin.extensions.editormd.dynamicMode'))
-            <div id="editormd-create-btn">
+            <div id="editormd-create-btn-{{$id}}" class="editormd-create-btn">
                 点击展开 {{$name}} 编辑器
             </div>
         @endif
@@ -17,7 +17,7 @@
 
 <style>
 
-    #editormd-create-btn {
+    .editormd-create-btn {
         padding: 10px;
         border: 1px solid #eee;
         border-radius: 4px;
