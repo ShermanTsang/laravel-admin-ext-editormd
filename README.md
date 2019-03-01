@@ -52,6 +52,8 @@ Use it in the form form:
 $form->editormd('content');
 ```
 
+## Attention
+If you wanna use editormd in laravel-admin tab component, you should set the option 'dynamicMode' to true in order to avoid a bug.
 
 License
 ------------
