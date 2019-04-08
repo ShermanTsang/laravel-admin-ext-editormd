@@ -24,23 +24,25 @@ In the `extensions` section of the `config/admin.php` file, add some configurati
 ```php
 'extensions' => [
     'editormd' => [
-        // Set to false if you want to disable this extension
-        'enable' => true,
-		// Set to true if you want to take advantage the screen length for your editormd instance.
-		'wideMode' => false,
-		// Set to true when the instance included in larave-admin tab component.
-		'dynamicMode' => false,
-        // Editor configuration
-        'config' => [
-		'path' => '/vendor/laravel-admin-ext/editormd/editormd-1.5.0/lib/',
-		'width' => '100%',
-        'height' => 600,
-        ]
+            // Set to false if you want to disable this extension
+            'enable' => true,
+            // Set to true if you want to take advantage the screen length for your editormd instance.
+            'wideMode' => false,
+            // Set to true when the instance included in larave-admin tab component.
+            'dynamicMode' => false,
+            // Editor.js configuration (Refer to http://pandao.github.io/editor.md/)
+            'config' => 
+        	[
+                'path' => '/vendor/laravel-admin-ext/editormd/editormd-1.5.0/lib/',
+                'width' => '100%',
+                'height' => 600,
+                'emoji' => true
+            ]
     ]
 ]
 ```
 
-### Default configuration list
+### Default configuration list & More configuration options
 
 If you want to enable more functions of EditorMd , you could add the following configurations to your config.
 The configuration of the editor can be found in [EditorMD Documentation](http://pandao.github.io/editor.md/).
