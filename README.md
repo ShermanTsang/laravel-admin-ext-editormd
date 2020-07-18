@@ -19,32 +19,59 @@ php artisan vendor:publish --tag=laravel-admin-ext-editormd
 
 In the `extensions` section of the `config/admin.php` file, add some configuration that belongs to this extension.
 
-### Required configuration example
+### Example
 
 ```php
-'extensions' => [
-    'editormd' => [
-            // Set to false if you want to disable this extension
-            'enable' => true,
-            // Set to true if you want to take advantage the screen length for your editormd instance.
-            'wideMode' => false,
-            // Set to true when the instance included in larave-admin tab component.
-            'dynamicMode' => false,
-            // Editor.js configuration (Refer to http://pandao.github.io/editor.md/)
-            'config' => 
-        	[
-                'path' => '/vendor/laravel-admin-ext/editormd/editormd-1.5.0/lib/',
-                'width' => '100%',
-                'height' => 600,
-                'emoji' => true
+<?php
+
+// file: {Your_project}/config/admin.php
+
+return [
+
+        'extensions' => [
+
+            'editormd' => [
+        
+                // Set to false if you want to disable this extension
+                'enable' => true,
+        
+                // Set to true if you want to take advantage the screen length for your editormd instance.
+                'wideMode' => false,
+        
+                // Set to true when the instance included in larave-admin tab component.
+                'dynamicMode' => false,
+        
+                // Editor configuration write in PHP array grammar
+                'config' => [
+                    'path' => '/vendor/laravel-admin-ext/editormd/editormd-1.5.0/lib/',
+                    'width' => '100%',
+                    'height' => 600,
+                ],
+        
+                // Editor configuration write in Javascript object grammar
+                'configJS' => '{onload: function() { alert("Hello!");}}'
             ]
+
     ]
-]
+
+];
 ```
 
-### Default configuration list & More configuration options
+### Notice
+
+The `config` (PHP array grammar) and `configJS` (Javascript object grammar) options will be merged into a new JavaScript object.
+
+You can set the configuration in the grammar you prefer.
+
+If you write a configuration item that corresponds to a static value, best practice is to use the PHP array syntax.
+
+Instead, when it comes to Editor's listen function, you are left with the option of using JS's object syntax.
+
+
+### Default configuration list
 
 If you want to enable more functions of EditorMd , you could add the following configurations to your config.
+
 The configuration of the editor can be found in [EditorMD Documentation](http://pandao.github.io/editor.md/).
 
 ## Usage
@@ -54,9 +81,18 @@ Use it in the form form:
 $form->editormd('content');
 ```
 
-## Attention
-If you wanna use editormd in laravel-admin tab component, you should set the option 'dynamicMode' to true in order to avoid a bug.
+## ChangeLog
+2020-07-18(East 8 time)
 
-License
-------------
+fix: fix the bug that the associated properties of the model are not available.
+
+feat: support JS Configuration Editor mode. (support for editor event monitoring)
+
+feat: redesign the UI of the component to be consistent with Laravel-admin.
+
+docs: improve basic documentation
+
+docs: add Chinese readme document.
+
+## License
 Licensed under [The MIT License (MIT)](LICENSE).
