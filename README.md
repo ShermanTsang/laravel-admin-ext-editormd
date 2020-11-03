@@ -1,3 +1,5 @@
+![](https://socialify.git.ci/ShareManT/laravel-admin-ext-editormd/image?font=Inter&forks=1&issues=1&owner=1&stargazers=1&theme=Light)
+
 # EditorMD extension for laravel-admin
 
 This is a `laravel-admin` extension that integrates [EditorMD](http://pandao.github.io/editor.md/) into the `laravel-admin` form.
